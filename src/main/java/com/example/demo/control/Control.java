@@ -19,18 +19,22 @@ import java.io.*;
 public class Control {
     @Autowired
     UserRepository userRepository;
-    @GetMapping("/zhuce")
-    public String zhuce(){
-        return "zhuce";
+
+    @GetMapping("/register")
+    public String register(){
+        return "register";
     }
-    @PostMapping("/zhuce")
+
+    @PostMapping("/register")
     public String tijiao(@RequestParam("name") String name,
                          @RequestParam("password") String password,
                          @RequestParam("file")MultipartFile file,
                          Model model) {
+        System.out.println("-");
         User user = new User();
         user.setUsername(name);
         user.setPassword(password);
+        System.out.println("---");
         if (!file.isEmpty()) {
             try {
                 BufferedOutputStream out = new BufferedOutputStream(
@@ -39,7 +43,7 @@ public class Control {
                 out.flush();
                 out.close();
                 String picutreaddr="picture\\" + name +".jpg";
-                user.setTupian(picutreaddr);
+                user.setAddr(picutreaddr);
                 userRepository.save(user);//增加用户
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

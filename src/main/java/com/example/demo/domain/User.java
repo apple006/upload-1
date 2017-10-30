@@ -14,38 +14,38 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private String tupian;//图片地址
+    private String addr;//图片地址
     public User(){}
 
     public Long getId() {
         return id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getTupian() {
-        return tupian;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setTupian(String tupian) {
-        this.tupian = tupian;
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
     }
 }
